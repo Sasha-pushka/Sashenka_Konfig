@@ -1,0 +1,43 @@
+#[
+Это автоматически сгенерированный файл.
+]#
+dict(
+    user = dict(
+        name = @"JohnDoe",
+        age = 30,
+        hobbies = { @"programming". @"cycling". @"reading" }
+    ),
+    server = dict(
+        host = @"localhost",
+        port = 8080,
+        endpoints = { @"/api/v1/users". @"/api/v1/orders" },
+        settings = dict(
+            max_connections = 100,
+            debug = True
+        )
+    ),
+    constants = dict(
+        app_name = @"MyApplication",
+        version = 1.2
+    ),
+    config = dict(
+        app = @"{{app_name}}",
+        ver = @"{{version}}"
+    ),
+    items = { 1. 2. 3. @"four". True },
+    robot = dict(
+        name = @"CleanerBot",
+        battery = 95,
+        modes = { @"auto". @"spot" },
+        sensors = dict(
+            lidar = True,
+            camera = True,
+            infrared = False
+        )
+    ),
+    multiline_comment = @"#[ 
+Это многострочный 
+комментарий для конфигурации.
+]#
+"
+)
