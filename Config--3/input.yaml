@@ -1,55 +1,16 @@
-# Пользовательские данные
-user:
-  name: "JohnDoe"
-  age: 30
-  hobbies:
-    - programming
-    - cycling
-    - reading
+number: 42
+string: "Hello, world!"
+array: (1, 2, 3)
 
-# Параметры сервера
-server:
-  host: "localhost"
-  port: 8080
-  endpoints:
-    - "/api/v1/users"
-    - "/api/v1/orders"
-  settings:
-    max_connections: 100
-    debug: true
-
-# Предопределённые константы
-constants:
-  app_name: "MyApplication"
-  version: 1.2
-
-# Использование вычисления констант
-config:
-  app: "{{app_name}}"
-  ver: "{{version}}"
-
-# Сложные структуры
-items:
-  - 1
-  - 2
-  - 3
-  - "four"
-  - true
-
-robot:
-  name: "CleanerBot"
-  battery: 95
-  modes:
-    - auto
-    - spot
-  sensors:
-    lidar: true
-    camera: true
-    infrared: false
-
-# Пример многострочного комментария
-multiline_comment: |
-  #[ 
-  Это многострочный 
-  комментарий для конфигурации.
-  ]#
+x: ?[number + 1]
+y: ?[number - 10]
+z: ?[number * 2]
+w: ?[number / 2]
+char: ?[chr(65)]
+root:
+  child1:
+    subchild1: "Value1"
+    subchild2: 42
+  child2: 
+    - "Item1"
+    - "Item2"

@@ -24,14 +24,9 @@ python config_language.py input.yaml output.txt
 ```
 input.yaml — путь к файлу YAML, который нужно преобразовать.
 output.txt — путь к файлу, куда будет записан результат.
-Чтобы запустить заготовленные тесты:
+2. Для запуска тестов используем:
 ```bash
 python test_config_language.py
-```
-2. Чтение данных из стандартного ввода
-Если вы хотите использовать стандартный ввод, укажите - вместо пути к файлу:
-```bash
-python config_language.py - output.txt
 ```
 Пример input.yaml
 ```yaml

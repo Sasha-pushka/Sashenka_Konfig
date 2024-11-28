@@ -1,43 +1,15 @@
-#[
-Это автоматически сгенерированный файл.
-]#
-dict(
-    user = dict(
-        name = @"JohnDoe",
-        age = 30,
-        hobbies = { @"programming". @"cycling". @"reading" }
-    ),
-    server = dict(
-        host = @"localhost",
-        port = 8080,
-        endpoints = { @"/api/v1/users". @"/api/v1/orders" },
-        settings = dict(
-            max_connections = 100,
-            debug = True
-        )
-    ),
-    constants = dict(
-        app_name = @"MyApplication",
-        version = 1.2
-    ),
-    config = dict(
-        app = @"{{app_name}}",
-        ver = @"{{version}}"
-    ),
-    items = { 1. 2. 3. @"four". True },
-    robot = dict(
-        name = @"CleanerBot",
-        battery = 95,
-        modes = { @"auto". @"spot" },
-        sensors = dict(
-            lidar = True,
-            camera = True,
-            infrared = False
-        )
-    ),
-    multiline_comment = @"#[ 
-Это многострочный 
-комментарий для конфигурации.
-]#
-"
-)
+number is 42
+string is "Hello, world!"
+array is "(1, 2, 3)"
+x is 43
+y is 32
+z is 84
+w is 21.0
+char is A
+root {
+  child1 {
+    subchild1 is "Value1"
+    subchild2 is 42
+  }
+  child2 is ( "Item1", "Item2" )
+}
