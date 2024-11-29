@@ -1,4 +1,4 @@
-
+import argparse
 
 def interpreter(binary_path, result_path, memory_range):
     memory = [0] * (2**10)  # Увеличиваем размер памяти до 1 МБ

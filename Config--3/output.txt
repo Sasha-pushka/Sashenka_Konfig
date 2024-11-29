@@ -5,7 +5,8 @@ x is 43
 y is 32
 z is 84
 w is 21.0
-char is A
+char is Acd ..
+
 root {
   child1 {
     subchild1 is "Value1"

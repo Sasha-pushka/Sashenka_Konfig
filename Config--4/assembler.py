@@ -6,6 +6,10 @@ def log_operation(log_path, operation_code, *args):
         with open(log_path, "a", encoding="utf-8") as log_file:
             log_file.write(f"Operation={operation_code},B={args[0]},C={args[1]}\n")
 
+# Форматирование байтов в строку "0xXX"
+def format_bytes(byte_list):
+    return ', '.join(f'0x{b:02X}' for b in byte_list)
+
 # Сериализация команды в бинарный формат
 def serializer(cmd, fields, size):
     bits = 0
@@ -14,25 +18,33 @@ def serializer(cmd, fields, size):
         bits |= (value << offset)  # Установка значения в определённое смещение
     return bits.to_bytes(size, byteorder='little')  # Преобразование в байты
 
-# Ассемблер
+# Ассемблер с выводом результата каждой операции
 def assembler(instructions, log_path=None):
     byte_code = []
     for operation, *args in instructions:
         if operation == "load":
             B, C = args
-            byte_code += serializer(5, [(B, 4), (C, 32)], 7)  # Загрузка константы
+            result = serializer(5, [(B, 4), (C, 32)], 7)
+            byte_code += result
+            print(f"load - {format_bytes(result)}")
             log_operation(log_path, 5, B, C)
         elif operation == "read":
             B, C, D = args
-            byte_code += serializer(2, [(B, 4), (C, 32), (D, 41)], 9)  # Чтение значения из памяти
+            result = serializer(2, [(B, 4), (C, 32), (D, 41)], 9)
+            byte_code += result
+            print(f"read - {format_bytes(result)}")
             log_operation(log_path, 2, B, C)
         elif operation == "write":
             B, C = args
-            byte_code += serializer(6, [(B, 4), (C, 32)], 8)  # Запись значения в память
+            result = serializer(6, [(B, 4), (C, 32)], 8)
+            byte_code += result
+            print(f"write - {format_bytes(result)}")
             log_operation(log_path, 6, B, C)
         elif operation == "abs":
             B, C, D = args
-            byte_code += serializer(10, [(B, 4), (C, 13), (D, 41)], 9)  # Унарная операция: abs()
+            result = serializer(10, [(B, 4), (C, 13), (D, 41)], 9)
+            byte_code += result
+            print(f"abs - {format_bytes(result)}")
             log_operation(log_path, 10, B, C)
     return byte_code
 
